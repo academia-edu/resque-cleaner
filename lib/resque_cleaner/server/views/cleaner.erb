@@ -24,6 +24,22 @@
         <td class="number"><a href="cleaner_list?c=<%=klass%>&f=24"><%= count["1d"] %></a></td>
         <td class="number"><a href="cleaner_list?c=<%=klass%>&f=72"><%= count["3d"] %></a></td>
         <td class="number"><a href="cleaner_list?c=<%=klass%>&f=168"><%= count["7d"] %></a></td>
+        <td class="button">
+          <form method="post" action="cleaner_exec">
+            <input type="hidden" name="c" value="<%= klass %>" />
+            <input type="hidden" name="action" value="retry_and_clear" />
+            <input type="hidden" name="select_all_pages" value="1" />
+            <input type="submit" value="Retry All" />
+          </form>
+        </td>
+        <td class="button">
+          <form method="post" action="cleaner_exec">
+            <input type="hidden" name="c" value="<%= klass %>" />
+            <input type="hidden" name="action" value="clear" />
+            <input type="hidden" name="select_all_pages" value="1" />
+            <input type="submit" value="Clear All" />
+          </form>
+        </td>
       </tr>
     <% end %>
     <tr class="total">
@@ -34,6 +50,20 @@
       <td class="number"><a href="cleaner_list?f=24"><%= @total["1d"] %></a></td>
       <td class="number"><a href="cleaner_list?f=72"><%= @total["3d"] %></a></td>
       <td class="number"><a href="cleaner_list?f=168"><%= @total["7d"] %></a></td>
+      <td class="button">
+        <form method="post" action="cleaner_exec">
+          <input type="hidden" name="action" value="retry_and_clear" />
+          <input type="hidden" name="select_all_pages" value="1" />
+          <input type="submit" value="Retry All" />
+        </form>
+      </td>
+      <td class="button">
+        <form method="post" action="cleaner_exec">
+          <input type="hidden" name="action" value="clear" />
+          <input type="hidden" name="select_all_pages" value="1" />
+          <input type="submit" value="Clear All" />
+        </form>
+      </td>
     </tr>
   </table>
 
