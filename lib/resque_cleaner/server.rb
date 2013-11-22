@@ -126,6 +126,8 @@ module ResqueCleaner
             items.each{|a| a["7d"] += 1} if failed_at >= hours_ago(24*7)
           end
 
+          @stats = Hash[@stats.sort_by { |k,s| [-s['total'],k] }]
+
           erb File.read(ResqueCleaner::Server.erb_path('cleaner.erb'))
         end
 
