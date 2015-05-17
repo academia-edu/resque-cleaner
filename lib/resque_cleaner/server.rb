@@ -1,3 +1,5 @@
+require 'yaml'
+
 # Extends Resque Web Based UI.
 # Structure has been borrowed from ResqueScheduler.
 module ResqueCleaner
@@ -96,6 +98,10 @@ module ResqueCleaner
               html += "<option #{selected} value=\"#{ex}\">#{ex}</option>"
             end
             html += "</select>"
+          end
+
+          def show_job_args(args)
+            Array(args).map { |a| a.inspect }.join("\n")
           end
         end
 
